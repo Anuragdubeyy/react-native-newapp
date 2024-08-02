@@ -16,7 +16,9 @@ export default function ActionCard() {
     <View>
       <Text style={styles.headerText}>ActionCard</Text>
       <View style={[styles.card, styles.elevatedCard]}>
-        <View style={styles.headingContainer}></View>
+        <View style={styles.headingContainer}>
+          <Text style={styles.cardTitle}>Hotel in Jaipur</Text>
+        </View>
         <Image
           source={{
             uri: 'https://media.houseandgarden.co.uk/photos/61894c9262b737ababca191d/16:9/w_1600,c_limit/2830087-house-7mar16_pr_b.jpg',
@@ -24,7 +26,6 @@ export default function ActionCard() {
           style={styles.cardImage}
         />
         <View style={styles.bodyContainer}>
-          <Text style={styles.cardTitle}>Hotel in Jaipur</Text>
           <Text numberOfLines={3}>
             No design lover should leave Jaipur without having sipped a drink in
             Bar Palladio, the most remarkable of settings. The experience begins
@@ -63,20 +64,22 @@ const styles = StyleSheet.create({
   },
   card: {
     width: 378,
-    height: 360,
+    height: 350,
     borderRadius: 6,
     marginVertical: 12,
     marginHorizontal: 16,
   },
   elevatedCard: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#DAE0E2',
     elevation: 3,
     shadowOffset: {
       width: 1,
       height: 1,
     },
   },
-  headingContainer: {},
+  headingContainer: {
+    alignItems: 'center',
+  },
 
   cardImage: {
     height: 180,
@@ -98,10 +101,16 @@ const styles = StyleSheet.create({
   footerContainer: {
     flex: 1,
     flexDirection: 'row',
-    gap: 16,
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
     paddingHorizontal: 14,
   },
   socialLink: {
-    color: 'blue',
+    color: '#000000',
+    fontSize: 16,
+    backgroundColor: '#FFF',
+    paddingHorizontal: 20,
+    paddingVertical: 6,
+    borderRadius: 6,
   },
 });
