@@ -44,8 +44,8 @@ function App() {
         <FlatCards />
         <ElevatedCard />
         <FancyCard />
-        <ActionCard />
         <Contact />
+        <ActionCard />
       </ScrollView>
     </SafeAreaView>
   );

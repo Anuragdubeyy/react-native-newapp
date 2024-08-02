@@ -4,7 +4,7 @@ import React from 'react';
 export default function FancyCard() {
   return (
     <View>
-      <Text style={styles.headerText}>fancyCard</Text>
+      <Text style={styles.headerText}>Fancy Card</Text>
       <View style={[styles.card, styles.cardElevated]}>
         <Image
           source={{
@@ -32,6 +32,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     paddingHorizontal: 8,
+    color:'#000000'
+
   },
   card: {
     width: 378,

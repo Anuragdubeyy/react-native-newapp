@@ -14,7 +14,7 @@ export default function ActionCard() {
   }
   return (
     <View>
-      <Text style={styles.headerText}>ActionCard</Text>
+      <Text style={styles.headerText}>Action Card</Text>
       <View style={[styles.card, styles.elevatedCard]}>
         <View style={styles.headingContainer}>
           <Text style={styles.cardTitle}>Hotel in Jaipur</Text>
@@ -61,6 +61,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     paddingHorizontal: 8,
+    color:'#000000'
+
   },
   card: {
     width: 378,
