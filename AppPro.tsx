@@ -35,6 +35,7 @@ import FlatCards from './component/flatCards';
 import ElevatedCard from './component/ElevatedCard';
 import FancyCard from './component/fancyCard';
 import ActionCard from './component/ActionCard';
+import Contact from './component/contact';
 function App() {
   return (
     <SafeAreaView>
@@ -44,6 +45,7 @@ function App() {
         <ElevatedCard />
         <FancyCard />
         <ActionCard />
+        <Contact />
       </ScrollView>
     </SafeAreaView>
   );
