@@ -34,6 +34,7 @@ import {SafeAreaView, ScrollView} from 'react-native';
 import FlatCards from './component/flatCards';
 import ElevatedCard from './component/ElevatedCard';
 import FancyCard from './component/fancyCard';
+import ActionCard from './component/ActionCard';
 function App() {
   return (
     <SafeAreaView>
@@ -42,6 +43,7 @@ function App() {
         <FlatCards />
         <ElevatedCard />
         <FancyCard />
+        <ActionCard />
       </ScrollView>
     </SafeAreaView>
   );
