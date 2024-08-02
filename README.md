@@ -12,6 +12,7 @@ First, you will need to start **Metro**, the JavaScript _bundler_ that ships _wi
 
 ### For Android
 
+```bash
 # using npx
 npx react-native run-android
 
