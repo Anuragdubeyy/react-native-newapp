@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/native';
 import {
   Image,
   Linking,
@@ -9,9 +10,11 @@ import {
 import React from 'react';
 
 export default function ActionCard() {
-  function openWebsite(websiteLink: String) {
-    Linking.openURL(websiteLink as string);
-  }
+   const navigation = useNavigation();
+
+   function openInApp(url: string) {
+     navigation.navigate('Webview', {url});
+   }
   return (
     <View>
       <Text style={styles.headerText}>Action Card</Text>
@@ -37,19 +40,17 @@ export default function ActionCard() {
         </View>
         <View style={styles.footerContainer}>
           <TouchableOpacity
-            onPress={() =>
-              openWebsite(
-                'https://www.houseandgarden.co.uk/article/travel-guide-jaipur',
-              )
-            }>
-            <Text style={styles.socialLink}>Read more</Text>
-          </TouchableOpacity>
+                onPress={() =>
+                  openInApp('https://cvcp.csinfocomm.com/VCCCustomerPortalV2/')
+                }>
+                <Text style={styles.socialLink}>Read more</Text>
+              </TouchableOpacity>
           <TouchableOpacity
-            onPress={() =>
-              openWebsite('https://www.instagram.com/houseandgardenuk/')
-            }>
-            <Text style={styles.socialLink}>Follow Me</Text>
-          </TouchableOpacity>
+                onPress={() =>
+                  openInApp('https://cvcp.csinfocomm.com/VCCCustomerPortalV2/')
+                }>
+                <Text style={styles.socialLink}>Read more</Text>
+              </TouchableOpacity>
         </View>
       </View>
     </View>
