@@ -7,7 +7,21 @@ export default function WebviewScreen({route}) {
 
   return (
     <SafeAreaView style={{flex: 1}}>
-      <WebView source={{uri: url}} />
+<WebView
+  source={{uri: url}}
+  javaScriptEnabled={true}
+  domStorageEnabled={true}
+  mediaPlaybackRequiresUserAction={false}
+  allowFileAccess={true}
+  allowingReadAccessToURL={url}
+  geolocationEnabled={true}
+  allowsInlineMediaPlayback={true}
+  androidCameraAccessEnabled={true}
+  androidMicrophoneAccessEnabled={true}
+  onPermissionRequest={event => {
+      event.grant(event.resources); // <-- Grant camera/mic for WebView
+    }}
+/>
     </SafeAreaView>
   );
 }

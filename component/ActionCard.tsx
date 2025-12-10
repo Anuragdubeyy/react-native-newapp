@@ -7,16 +7,58 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
+import PermissionPopup from './PermissionPopup';
+import { PermissionsAndroid, Platform } from 'react-native';
+
 
 export default function ActionCard() {
    const navigation = useNavigation();
+  const [showPopup, setShowPopup] = useState(false);
+  const [pendingUrl, setPendingUrl] = useState('');
+ async function requestPermissions() {
+   if (Platform.OS === 'android') {
+     try {
+       const granted = await PermissionsAndroid.requestMultiple([
+         PermissionsAndroid.PERMISSIONS.CAMERA,
+         PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
+       ]);
 
-   function openInApp(url: string) {
-     navigation.navigate('Webview', {url});
+       return (
+         granted['android.permission.CAMERA'] === PermissionsAndroid.RESULTS.GRANTED &&
+         granted['android.permission.RECORD_AUDIO'] === PermissionsAndroid.RESULTS.GRANTED
+       );
+     } catch (err) {
+       console.warn("Permission error:", err);
+       return false;
+     }
    }
+   return true;
+ }
+
+  function openInApp(url: string) {
+    setPendingUrl(url);
+    setShowPopup(true); // show the custom popup first
+  }
+
+  async function handleProceed() {
+    setShowPopup(false);
+
+    const allowed = await requestPermissions();
+
+    if (allowed) {
+      navigation.navigate('Webview', {url: pendingUrl});
+    } else {
+      console.warn('Permission denied');
+    }
+  }
   return (
     <View>
+    <PermissionPopup
+            visible={showPopup}
+            onProceed={handleProceed}
+            onCancel={() => setShowPopup(false)}
+          />
       <Text style={styles.headerText}>Action Card</Text>
       <View style={[styles.card, styles.elevatedCard]}>
         <View style={styles.headingContainer}>
